@@ -24,6 +24,7 @@ router = DefaultRouter()
 router.register(r'bookings', BookingViewSet)
 router.register(r'users', UserViewSet)
 
+
 urlpatterns = [
    path('admin/', admin.site.urls),
    path('restaurant/booking/', include(router.urls)),

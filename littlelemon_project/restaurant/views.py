@@ -9,13 +9,17 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from rest_framework.viewsets import ModelViewSet
+# from rest_framework.viewsets import ModelViewSet
 from rest_framework.serializers import ModelSerializer
 
 
 
 # Create your views here.
 class MenuItemView(generics.ListCreateAPIView):
+    queryset = MenuItem.objects.all()
+    serializer_class = MenuItemSerializer
+
+class MenuItemDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
 
